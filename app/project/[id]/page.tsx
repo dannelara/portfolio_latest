@@ -37,7 +37,7 @@ const Project = ({ params }: Props) => {
                                 <div className='col-span-4'>
                                     <span className='text-skin-base font-medium'>Techniques used:</span>
                                     <div className='flex flex-wrap gap-2 md:gap-4'>
-                                        {project.tags.map((tag) => (<Chip text={tag} />))}
+                                        {project.tags.map((tag) => (<Chip key={tag} text={tag} />))}
                                     </div>
                                 </div>
                                 <Link href={project!.href} target='_blank'
@@ -56,8 +56,10 @@ const Project = ({ params }: Props) => {
                                 </div>
                                 <div className='grid grid-cols-1 col-start-3 gap-2 col-span-full md:space-y-4'>
                                     {
-                                        project.images.length > 0 && project.images.map((img) => (
-                                            <div className='p-2 bg-cover border-2 border-skin-base'>
+                                        project.images.length > 0 && project.images.map((img, key: number) => (
+                                            <div className='p-2 bg-cover border-2 border-skin-base'
+                                                key={key}
+                                            >
                                                 <img src={img} className='w-full' />
                                             </div>
                                         ))
