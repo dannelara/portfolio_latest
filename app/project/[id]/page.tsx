@@ -60,7 +60,7 @@ const Project = ({ params }: Props) => {
                                             <div className='p-2 bg-cover border-2 border-skin-base'
                                                 key={key}
                                             >
-                                                <img src={img} className='w-full' />
+                                                <img src={img} className='w-full' alt='' />
                                             </div>
                                         ))
                                     }
