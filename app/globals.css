@@ -1,27 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
+
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --bg-opacity: .3;
+    --background:  #fff;
+    --background-overlay: rgb(16 21 29 / var(--bg-opacity));
+    --clr-gray-100:hsl(0, 0%, 100%);
+    --clr-gray-200: #333333;
+    --clr-gray-shaded: rgb(0,0,0);
+    --clr-white: #fff;
+    --background-glas: rgba(220, 219, 219, 0.093);
+    --text-color: #000000;
+    --hover-base: #000000;
+  }
+
+  .DARK {
+    --bg-opacity: .3;
+    --background:  hsl(231, 100%, 5%);
+    --background-overlay: rgb(16 21 29 / var(--bg-opacity));
+    --clr-gray-100:hsl(0, 0%, 100%);
+    --clr-gray-200: #333333;
+    --clr-gray-shaded: rgba(235, 234, 234, 0.2);
+    --clr-white: #fff;
+    --background-glas: rgba(220, 219, 219, 0.093);
+    --text-color: #fff;
+    --hover-base: #fff;
+  }
+
+  .noise {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    z-index: 1;
+    background-image: url(/noise.gif);
+    background-position: 50% 50%;
+    background-size: auto;
+    opacity: 0.02;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
 }
+
