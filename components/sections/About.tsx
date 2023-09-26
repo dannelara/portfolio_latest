@@ -39,7 +39,7 @@ const About = () => {
                             <div className="" >
                             </div>
                         </div>
-                        <div className='w-[.2px] bg-skin-base'></div>
+                        <div className='w-[.5px] bg-skin-base'></div>
                         <div className='flex flex-col justify-around flex-1'>
                             {
                                 dividedWork[2].map((w) => (

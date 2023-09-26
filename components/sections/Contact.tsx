@@ -18,16 +18,19 @@ const Contact = () => {
                 >
                     11daniel@live.se
                 </Link>
-                <div className='flex justify-end gap-4'>
+                <div className='flex gap-4 justify-end mr-2'>
                     <Link href="https://www.linkedin.com/in/daniel-lara-92bb19242/"
                         target='_blank'
+                        className='w-6'
                     >
-                        <LinkedIn className='h-7 fill-skin-base' />
+                        <LinkedIn className='w-7 h-7 fill-skin-base' />
                     </Link>
                     <Link href="https://github.com/dannelara"
                         target='_blank'
+                        className='w-6'
+
                     >
-                        <Github className='h-7 fill-skin-base' />
+                        <Github className='w-7 h-7 fill-skin-base' />
                     </Link>
                 </div>
             </div>
