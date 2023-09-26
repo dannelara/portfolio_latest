@@ -23,14 +23,14 @@ const About = () => {
                         Committed full-stack developer with a strong inclination towards both front-end and back-end development.
                     </span>
                     <span className='font-light text-skin-base'>
-                        Additionally, I possess a profound enthusiasm for algorithms and data structures. I earned my bachelor's degree in data science from Linnaeus University and presently work at Compileit Sweden AB.
+                        Additionally, I possess a profound enthusiasm for algorithms and data structures. I earned my bachelor&apos;s degree in data science from Linnaeus University and presently work at Compileit Sweden AB.
                     </span>
 
                     <div className='flex justify-between flex-1 min-h-[10rem] md:min-0 py-4'>
                         <div className='flex flex-col justify-between flex-1 gap-4 justify-be'>
                             {
                                 dividedWork[1].map((w) => (
-                                    <div className="relative flex flex-col items-center after:absolute after:content-[''] after:w-2 after:-right-[0.25rem] after:aspect-square after:bg-skin-base after:top-1/3 after:rounded-full" >
+                                    <div key={w.name} className="relative flex flex-col items-center after:absolute after:content-[''] after:w-2 after:-right-[0.25rem] after:aspect-square after:bg-skin-base after:top-1/3 after:rounded-full" >
                                         <span className='text-xs font-semibold text-skin-base'>{w.name}</span>
                                         <span className='text-xs font-light text-skin-base'>{w.description}</span>
                                     </div>
@@ -43,7 +43,7 @@ const About = () => {
                         <div className='flex flex-col justify-around flex-1'>
                             {
                                 dividedWork[2].map((w) => (
-                                    <div className="relative flex flex-col items-center before:absolute before:content-[''] before:w-2 before:-left-[0.25rem]  before:aspect-square before:bg-skin-base before:top-1/3 before:rounded-full" >
+                                    <div key={w.name} className="relative flex flex-col items-center before:absolute before:content-[''] before:w-2 before:-left-[0.25rem]  before:aspect-square before:bg-skin-base before:top-1/3 before:rounded-full" >
                                         <span className='text-xs font-semibold text-skin-base'>{w.name}</span>
                                         <span className='text-xs font-light text-skin-base'>{w.description}</span>
                                     </div>

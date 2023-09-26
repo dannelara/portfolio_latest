@@ -71,7 +71,6 @@ const preferedSubjects: PreferedSubject [] = [
         name: "Artificial intelligence",
         description: "AI is the future, not just a trend. I've worked with various AI technologies, including OpenAI models, Pinecone vector database, Vercel AI SDK, Langchain, and more."
     },
-    
     {
         name: "Backend",
         description: "Backends are the real MVPs, and I have hands-on experience with Node.js, Serverless, AWS, Strapi, MySQL, MongoDB, and more cool tech."
