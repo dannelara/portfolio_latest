@@ -18,7 +18,7 @@ const Contact = () => {
                 >
                     11daniel@live.se
                 </Link>
-                <div className='flex items-center justify-end space-x-4'>
+                <div className='flex justify-end gap-4'>
                     <Link href="https://www.linkedin.com/in/daniel-lara-92bb19242/"
                         target='_blank'
                     >

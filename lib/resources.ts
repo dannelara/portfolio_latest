@@ -4,7 +4,7 @@ import { PreferedSubject, Project, Work } from "@/utils/Types";
 const projects: Project[] = [
     {
         id:1 ,
-        year: new Date('2023-4-01'),
+        year: new Date('2023-04-01'),
         name: 'Ciboost',
         description: 'Ciboost is a digital tool that helps teams and organizations to collaborate and communicate more effectively.',
         href: new URL('https://ciboost.se'),
