@@ -9,11 +9,11 @@ const Contact = () => {
 
 
     return (
-        <Grid className='container items-center'>
+        <Grid className='container items-center justify-center py-12'>
             <div className='col-span-3'>
-                <span className='text-base text-skin-base font-medium'>Contact me</span>
+                <span className='text-base text-skin-base'>Contact me</span>
             </div>
-            <div className='grid grid-cols-2 col-start-4 col-span-full text-skin-base'>
+            <div className='grid grid-cols-2 col-start-4 my-12 font-light col-span-full text-skin-base'>
                 <Link href="mailto:11daniel@live.se"
                 >
                     11daniel@live.se
@@ -26,7 +26,6 @@ const Contact = () => {
                     </Link>
                     <Link href="https://github.com/dannelara"
                         target='_blank'
-
                     >
                         <Github className='h-7 fill-skin-base' />
                     </Link>

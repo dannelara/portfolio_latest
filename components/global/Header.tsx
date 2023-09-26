@@ -1,15 +1,15 @@
 import DarkMode from '@/assets/icons/DarkMode';
 import LightMode from '@/assets/icons/LightMode';
 import { useGlobalState } from '@/globalState/GlobalStateProvider';
+import { cn } from '@/utils';
 import { Theme } from '@/utils/Types';
-import clsx from 'clsx';
 import React from 'react';
 
 const Header = () => {
     const { theme, setTheme } = useGlobalState();
 
     return (
-        <header className={clsx("container sticky h-10 md:h-20 w-full top-4 z-50 backdrop-blur-0")}>
+        <header className={cn("container sticky h-10 md:h-20 w-full top-4 z-50 backdrop-blur-sm")}>
             <nav className='container h-full flex justify-between border-[.1px] border-skin-gray-shaded'>
                 <div className='flex items-center gap-4 px-4'>
                     <div className='h-2 my-auto rounded-full aspect-square bg-skin-base'></div>

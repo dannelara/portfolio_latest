@@ -34,14 +34,23 @@ const Project = ({ params }: Props) => {
                                 {project.name}
                             </h1>
                             <Grid className='py-4 md:py-12'>
-                                <div className='col-span-4'>
-                                    <span className='text-skin-base font-medium'>Techniques used:</span>
-                                    <div className='flex flex-wrap gap-2 md:gap-4'>
-                                        {project.tags.map((tag) => (<Chip key={tag} text={tag} />))}
+                                <div className='col-span-4 space-y-4'>
+                                    <div>
+                                        <span className='text-skin-base'>Techniques used:</span>
+                                        <div className='grid grid-cols-3 font-light md:grid-cols-6'>
+                                            {project.tags.map((tag) => (<Chip key={tag} text={tag} />))}
+                                        </div>
                                     </div>
+
+                                    {
+                                        project.role && <div>
+                                            <span className='text-skin-base'>Role:</span>
+                                            <span className='block text-xs font-light text-skin-base md:text-base'> {project.role}</span>
+                                        </div>
+                                    }
                                 </div>
                                 <Link href={project!.href} target='_blank'
-                                    className='flex items-center justify-between border-b-2 border-skin-base text-skin-base md:col-start-8 font-medium'
+                                    className='flex items-center justify-between col-span-2 border-b-2 border-skin-base text-skin-base md:col-start-7 h-fit'
                                 >
                                     Go to website
                                     <div className='inline-block rotate-180'>
@@ -52,7 +61,7 @@ const Project = ({ params }: Props) => {
 
                             <Grid className='py-4 md:space-x-6'>
                                 <div className={clsx("", project.images.length > 0 ? "col-span-2" : "col-span-full")}>
-                                    <span className='text-base text-skin-base'>{project.description}</span>
+                                    <span className='text-xs font-light md:text-base text-skin-base'>{project.description}</span>
                                 </div>
                                 <div className='grid grid-cols-1 col-start-3 gap-2 col-span-full md:space-y-4'>
                                     {
@@ -69,7 +78,7 @@ const Project = ({ params }: Props) => {
                         </div>
                         : null
                 }
-            </div>
+            </div >
         </Layout >
     );
 };

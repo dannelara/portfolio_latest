@@ -18,6 +18,7 @@ export type Project = {
     src: string
     tags: string[]
     images: string[]
+    role?: string
 }
 
 export type PreferedSubject = {

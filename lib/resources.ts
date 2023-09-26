@@ -6,31 +6,34 @@ const projects: Project[] = [
         id:1 ,
         year: new Date('2023-4-01'),
         name: 'Ciboost',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        href: new URL('https://ciboost.vercel.app/'),
+        description: 'Ciboost is a digital tool that helps teams and organizations to collaborate and communicate more effectively.',
+        href: new URL('https://ciboost.se'),
         src: '/images/ciboost.png',
         tags: ['React', 'NextJS', 'CSS', "serverless", 'AWS', "MySQL", "MUI", "Contentful", "TanStack", "TypeScript"],
-        images: []
+        images: [],
+        role: "Co-project manager and full-stack developer responsible for the development of the front-end and back-end."
     },
     {
         id:2 ,
         year: new Date('2023-06-01'),
         name: 'Söderögon',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description: 'SöderÖgon is a website created to showcase the expertise of its founders, who are experienced professionals in the fields of ophthalmology and optometry. Established in 2021, this platform offers information and services related to medical eye care and vision quality.',
         href: new URL('https://ciboost.vercel.app/'),
         src: '/images/ciboost.png',
         tags: ['React', 'NextJS', 'TailwindCSS',"TypeScript", "Docker", "AWS", "Cloudfare"],
-        images: []
+        images: [],
+        role: "Project manager and full-stack developer responsible for the development of the front-end and back-end as well as the infrastructure."
     },
     {
         id:3 ,
         year: new Date('2023-06-01'),
         name: 'Trifam',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description: 'Trifam, founded in the 1960s, specializes in commercial property construction and management. They expanded into residential properties in 2010, aiming for "Satisfied tenants in fully occupied buildings." With a portfolio of six commercial properties (75,000 sqm) and two residential properties (323 apartments), they handle all management in-house with eight employees.',
         href: new URL('https://ciboost.vercel.app/'),
         src: '/images/ciboost.png',
-        tags: ['React', 'NextJS', 'TailwindCSS', "Docker", "AWS", "Cloudfare", "TypeScript", "Strapi"],
-        images: []
+        tags: ['React', 'NextJS', 'TailwindCSS', "Docker", "AWS", "Cloudfare", "TypeScript", "Strapi", "AirTable", "Tally forms"],
+        images: [],
+        role: "Project manager and full-stack developer responsible for the development of the front-end and back-end as well as the infrastructure."
     },
 
 ]
@@ -44,7 +47,8 @@ const personalProjects: Project[] = [
         href: new URL('https://art-gallery-rho-two.vercel.app'),
         src: '/images/art_gallery.png',
         tags: ['React', 'NextJS', 'TailwindCSS', "TypeScript"],
-        images: ["/images/art_gallery.png","/images/art_gallery2.png", "/images/art_gallery3.png"]
+        images: ["/images/art_gallery.png","/images/art_gallery2.png", "/images/art_gallery3.png"],
+        
     },
     {
         id: 5,

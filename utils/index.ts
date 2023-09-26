@@ -1,11 +1,9 @@
-const twb = (baseClassName: string, extraClassNames: string[]) => {
-    let result = "";
-  
-    for (let i = 0; i < extraClassNames.length; i++) {
-      result += `${baseClassName}-${extraClassNames[i]} `;
-    }
-  
-    return result.trim();
-  };
-  
-export default twb;
+import { ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+const  cn = (...inputs: ClassValue[])  =>{
+  return twMerge(clsx(inputs));
+}
+
+
+export  {cn};

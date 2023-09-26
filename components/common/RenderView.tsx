@@ -1,9 +1,9 @@
 "use client"
 import React from 'react';
 import { View } from '@/utils/Types';
-import About from '@/sections/About';
-import Contact from '@/sections/Contact';
-import Projects from '@/sections/Projects';
+import About from '@/components/sections/About';
+import Contact from '@/components/sections/Contact';
+import Projects from '@/components/sections/Projects';
 import { useGlobalState } from '@/globalState/GlobalStateProvider';
 
 

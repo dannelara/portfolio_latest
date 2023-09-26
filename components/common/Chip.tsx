@@ -7,7 +7,7 @@ type Props = {
 const Chip = ({ text }: Props) => {
     return (
         <div className='inline-block'>
-            <span className='text-skin-base text-xs'>
+            <span className='text-xs md:text-base text-skin-base'>
                 {text}
             </span>
         </div>
