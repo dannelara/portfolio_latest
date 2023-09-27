@@ -1,11 +1,9 @@
 "use client";
 import React, { useContext } from "react";
-import { Theme, View } from "../utils/Types";
+import { Theme } from "../utils/Types";
 
 
 export interface GlobalState {
-    activeView: View;
-    setActiveView: React.Dispatch<React.SetStateAction<View>>;
     searchQueries: string[];
     setSearchQueries: React.Dispatch<React.SetStateAction<string[]>>;
     theme: Theme;
@@ -22,7 +20,6 @@ export const GlobalStatePovider = ({
     children: JSX.Element | JSX.Element[];
 }) => {
     const [theme, setTheme] = React.useState<Theme>(Theme.LIGHT);
-    const [activeView, setActiveView] = React.useState(View.PROJECTS);
     const [searchQueries, setSearchQueries] = React.useState<string[]>([]);
 
     React.useEffect(() => {
@@ -35,7 +32,7 @@ export const GlobalStatePovider = ({
         }
     }, [theme]);
 
-    const state = { activeView, setActiveView, searchQueries, setSearchQueries, theme, setTheme };
+    const state = { searchQueries, setSearchQueries, theme, setTheme };
 
     return (
         <GlobalStateContext.Provider value={state}>
