@@ -1,7 +1,6 @@
 import Github from '@/assets/icons/Github';
 import LinkedIn from '@/assets/icons/LinkedIn';
 import Grid from '@/components/common/Grid';
-import Input from '@/components/common/Input';
 import Link from 'next/link';
 import React from 'react';
 

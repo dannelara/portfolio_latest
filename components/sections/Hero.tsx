@@ -1,7 +1,6 @@
 "use client"
 import React from 'react';
 import Card from '../common/Card';
-import AIicon from '../../assets/icons/AIicon';
 import Grid from '@/components/common/Grid';
 import { preferedSubjects } from '@/lib/resources';
 

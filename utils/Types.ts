@@ -10,15 +10,16 @@ export enum View {
 }
 
 export type Project = {
-    year: Date
     id: number
     name: string
     description: string
+    descriptionShort: string
     href: URL
     src: string
     tags: string[]
     images: string[]
     role?: string
+    locked: boolean
 }
 
 export type PreferedSubject = {
@@ -29,5 +30,6 @@ export type PreferedSubject = {
 export type Work = {
     name: string
     description: string
-    year: Date
+    from: Date
+    to?: Date
 }

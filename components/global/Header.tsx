@@ -13,7 +13,6 @@ const Header = () => {
             <nav className='container h-full flex justify-between border-[.1px] border-skin-gray-shaded'>
                 <div className='flex items-center gap-4 px-4'>
                     <div className='h-2 my-auto rounded-full aspect-square bg-skin-base'></div>
-                    <span className='text-xs text-skin-base'>Daniel</span>
                 </div>
 
                 <div className='flex items-center justify-end'>
