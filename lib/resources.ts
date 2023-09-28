@@ -70,7 +70,7 @@ const personalProjects: Project[] = [
 const preferedSubjects: PreferedSubject [] = [
     {
         name: "Front-end",
-        description: "I love crafting stunning, responsive websites using React, Next.js, Tailwind CSS, Material UI, Contenful CMS, Strapi CMS, and more"
+        description: "I love crafting stunning, responsive websites using React, Next.js, Tailwind CSS, Material UI, Contentful CMS, Strapi CMS, and more"
     },
     {
         name: "Artificial intelligence",
