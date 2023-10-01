@@ -69,6 +69,12 @@ const Chat = () => {
                             }
                         />
                     </div>
+                    <div className='text-xs py-4 text-gray-400'>
+                        <span>
+                            This AI model is a simple single answer model that produces concrete data based on the input and context.
+                            The ai will only return the data requested in the input. For example: "What is your name" would return "Daniel" in this case.
+                        </span>
+                    </div>
                 </form>
             </div>
         </Grid>
