@@ -1,4 +1,3 @@
-import AIicon from "@/assets/icons/AIicon";
 import { PreferedSubject, Project, Work } from "@/utils/Types";
 
 const projects: Project[] = [

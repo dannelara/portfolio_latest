@@ -33,3 +33,9 @@ export type Work = {
     from: Date
     to?: Date
 }
+
+export type Message = {
+    id: string
+    message: string
+    from: "USER" | "BOT"
+}
