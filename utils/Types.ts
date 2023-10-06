@@ -37,5 +37,11 @@ export type Work = {
 export type Message = {
     id: string
     message: string
-    from: "USER" | "BOT"
+    from: MessageAuthor
+}
+
+export enum MessageAuthor {
+    USER="USER",
+    AI="AI"
+
 }

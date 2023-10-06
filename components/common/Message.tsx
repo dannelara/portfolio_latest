@@ -1,5 +1,5 @@
 "use client"
-import { Message } from '@/utils/Types';
+import { Message, MessageAuthor } from '@/utils/Types';
 import React from 'react';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const RenderMessage = ({ message: { message, from, id } }: Props) => {
-    
+
     let currentI = 0;
     let [currentMessageString, setCurrentMessageString] = React.useState('');
 
@@ -30,10 +30,9 @@ const RenderMessage = ({ message: { message, from, id } }: Props) => {
         return () => clearInterval(interval);
     }, [message]);
 
-    // console.log(currentMessageString)
     return (
         <div className='py-2'>
-            {from === 'USER' ? (
+            {from === MessageAuthor.USER ? (
                 <div className='flex justify-end'>
                     <div className='rounded-xl p-2'>{message}</div>
                 </div>
@@ -41,7 +40,7 @@ const RenderMessage = ({ message: { message, from, id } }: Props) => {
                 <div className='flex justify-start'>
                     <div className='rounded-xl py-2 flex gap-4 justify-start'>
                         <span className='text-skin-base text-xs capitalize text-start'>AI:</span>
-                        <span className='text-skin-base text-xs capitalize'>{currentMessageString}</span>
+                        <span className='text-skin-base text-xs capitalize'>{currentMessageString}.</span>
                     </div>
                 </div>
             )}

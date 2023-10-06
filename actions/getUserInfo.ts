@@ -1,16 +1,18 @@
 'use server'
+import PipelineSingleton from "@/lib/pipeline";
 
-import PipelineSingleton from "@/app/api/classify/pipeline";
-
-export async function getUserInfo(message: string) {
+export async function getUserInfoFromQuestion(question: string) {
     try {
-        if (!message) {
-            throw {
-                message: "Missing message parameter"
+     
+        if (!question) {
+            return {
+                ok: false,
+                message: "Missing question parameter"
             };
         }
 
         const getAnswerFromContext = await PipelineSingleton.getInstance();
+
         const context = `
         My name is Daniel and I live in Stockholm, Sweden. 
         I am a dedicated full-stack developer with a keen interest in front-end and back-end development, as well as a deep passion for algorithms and data structures. 
@@ -19,14 +21,19 @@ export async function getUserInfo(message: string) {
         Furthermore, I have a deep interest in algorithms and data structures. I have a bachelor's degree in computer science from Linnaeus University and currently work at Compileit Sweden AB.
         Thesis: Machine learning and algorithms together with Fortnox.
         `;
-        const result = await getAnswerFromContext(message, context);
+
+        const result = await getAnswerFromContext(question, context);
         
-        return result;
+        return {
+            ok: true,
+            answer: result.answer
+        };
 
     } catch (error) {
-        throw {
-            message: "Error in getUserInfo",
-            cause: error
+        return {
+            ok: false,
+            message: "Error in getUserInfoFromQuestion",
+            cause: error,
         };
     }
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import Grid from '../common/Grid';
 import SubmitButton from '../common/SubmitButton';
 import { experimental_useOptimistic as useOptimistic } from 'react'
-import { Message } from '@/utils/Types';
-import { getUserInfo } from '@/actions/getUserInfo';
+import { Message, MessageAuthor } from '@/utils/Types';
+import { getUserInfoFromQuestion } from '@/actions/getUserInfo';
 import Input from '../common/Input';
 import { v4 as uuidv4 } from 'uuid';
 import RenderMessage from '../common/Message';
@@ -16,6 +16,37 @@ const Chat = () => {
     )
 
 
+    const handleSubmit = async (formData: FormData) => {
+        const inputData = formData.get('message')
+        if (!inputData) return
+
+        const message: Message = {
+            from: MessageAuthor.USER,
+            id: uuidv4(),
+            message: inputData as string,
+        }
+
+        try {
+            const response = await getUserInfoFromQuestion(message.message)
+
+            if (response.ok) {
+                const responseToMessage: Message = {
+                    from: MessageAuthor.AI,
+                    id: uuidv4(),
+                    message: response.answer
+                }
+
+                addOptimisticMessage(
+                    (messages) => [responseToMessage, ...messages],
+                )
+                setMessage("")
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <Grid className='container max-h-[30rem] overflow-y-auto'>
             <div className='col-span-2 mb-2'>
@@ -25,30 +56,10 @@ const Chat = () => {
                 <div className='py-4 min-h-[10rem] '>
                     {optimisticMessages.map((message) => (
                         <RenderMessage key={message.id} message={message} />
-
                     ))}
                 </div>
                 <form
-                    action={async (formData: FormData) => {
-                        const inputData = formData.get('message')
-                        if (!inputData) return
-                        const message: Message = {
-                            from: 'USER',
-                            id: uuidv4(),
-                            message: inputData as string,
-                        }
-
-                        const response = await getUserInfo(message.message)
-                        const responseToMessage: Message = {
-                            from: 'BOT',
-                            id: uuidv4(),
-                            message: response.answer
-                        }
-                        addOptimisticMessage(
-                            (messages) => [responseToMessage, ...messages],
-                        )
-                        setMessage("")
-                    }}
+                    action={handleSubmit}
                 >
                     <div className='flex gap-4 items-center'>
                         <Input
