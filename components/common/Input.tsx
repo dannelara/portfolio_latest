@@ -1,19 +1,16 @@
+import { cn } from '@/utils';
 import React from 'react';
 
-type Props = {
-    type: React.InputHTMLAttributes<HTMLInputElement>['type']
-    placeholder: string
-    value: string
-    setValue: (str: string) => void
+
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
+    value?: string
+    setValue?: (str: string) => void
 };
 
-const Input = ({ type, placeholder, value, setValue }: Props) => {
+const Input = (props: Props) => {
     return (
         <input
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            {...props}
         />
     );
 };

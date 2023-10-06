@@ -33,3 +33,15 @@ export type Work = {
     from: Date
     to?: Date
 }
+
+export type Message = {
+    id: string
+    message: string
+    from: MessageAuthor
+}
+
+export enum MessageAuthor {
+    USER="USER",
+    AI="AI"
+
+}
