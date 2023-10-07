@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <About />
-      <Chat />
+      {/* <Chat /> */}
       <Contact />
     </Layout>
   )
