@@ -15,11 +15,13 @@ const Chat = () => {
         [],
     )
 
+    const [disabled, setDisabled] = React.useState(false)
 
     const handleSubmit = async (formData: FormData) => {
         const inputData = formData.get('message')
         if (!inputData) return
 
+        setDisabled(true)
         const message: Message = {
             from: MessageAuthor.USER,
             id: uuidv4(),
@@ -42,9 +44,11 @@ const Chat = () => {
                 setMessage("")
             }
 
+
         } catch (error) {
             console.log(error)
         }
+        setDisabled(false)
     }
 
     return (
@@ -71,7 +75,9 @@ const Chat = () => {
                             className='"hover:outline-none focus:outline-none border-b-2 border-b-skin-base bg-transparent text-skin-base w-full'
                             placeholder='Type a message...'
                         />
-                        <SubmitButton text='Send'
+                        <SubmitButton
+                            disabled={disabled}
+                            text='Send'
                             className='flex mt-auto'
                             icon={
                                 <div className='inline-block rotate-180'>
