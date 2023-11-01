@@ -10,18 +10,17 @@ import RenderMessage from '../common/Message';
 import ArrowBack from '@/assets/icons/ArrowBack';
 const Chat = () => {
     const [message, setMessage] = React.useState("What skills do you have?")
-
-    const [optimisticMessages, addOptimisticMessage] = useOptimistic<Message[]>(
-        [],
-    )
-
+    const [optimisticMessages, addOptimisticMessage] = useOptimistic<Message[]>([])
     const [disabled, setDisabled] = React.useState(false)
+    const [isLoading, setIsLoading] = React.useState(false)
 
     const handleSubmit = async (formData: FormData) => {
         const inputData = formData.get('message')
         if (!inputData) return
 
         setDisabled(true)
+        setIsLoading(true)
+
         const message: Message = {
             from: MessageAuthor.USER,
             id: uuidv4(),
@@ -38,15 +37,13 @@ const Chat = () => {
                     message: response.answer
                 }
 
-                addOptimisticMessage(
-                    (messages) => [responseToMessage, ...messages],
-                )
+                addOptimisticMessage((messages) => [responseToMessage, ...messages])
                 setMessage("")
             }
 
-
         } catch (error) {
             console.log(error)
+            setIsLoading(false)
         }
         setDisabled(false)
     }
@@ -59,7 +56,10 @@ const Chat = () => {
             <div className='container space-y-4 md:space-y-0  md:col-start-3 col-span-full gap-4'>
                 <div className='py-4 min-h-[10rem] '>
                     {optimisticMessages.map((message) => (
-                        <RenderMessage key={message.id} message={message} />
+                        <RenderMessage
+                            messageDisplayFinished={() => setIsLoading(false)}
+                            key={message.id}
+                            message={message} />
                     ))}
                 </div>
                 <form
@@ -76,7 +76,7 @@ const Chat = () => {
                             placeholder='Type a message...'
                         />
                         <SubmitButton
-                            disabled={disabled}
+                            disabled={disabled || isLoading}
                             text='Send'
                             className='flex mt-auto'
                             icon={
