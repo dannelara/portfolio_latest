@@ -4,9 +4,10 @@ import React from 'react';
 
 type Props = {
     message: Message
+    messageDisplayFinished: () => void
 };
 
-const RenderMessage = ({ message: { message, from, id } }: Props) => {
+const RenderMessage = ({ message: { message, from, id }, messageDisplayFinished }: Props) => {
 
     let currentI = 0;
     let [currentMessageString, setCurrentMessageString] = React.useState('');
@@ -23,11 +24,13 @@ const RenderMessage = ({ message: { message, from, id } }: Props) => {
 
             setCurrentMessageString(`${currentMessageString += message.charAt(currentI)}`)
 
-
             currentI++;
         }, 50);
 
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+            messageDisplayFinished();
+        };
     }, [message]);
 
     return (
