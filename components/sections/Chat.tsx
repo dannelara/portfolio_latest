@@ -1,18 +1,31 @@
+"use client";
+
 import React from 'react';
 import Grid from '../common/Grid';
 import SubmitButton from '../common/SubmitButton';
 import { experimental_useOptimistic as useOptimistic } from 'react'
-import { Message, MessageAuthor } from '@/utils/Types';
+import { Message, MessageAuthor, MessageT } from '@/utils/Types';
 import { getUserInfoFromQuestion } from '@/actions/getUserInfo';
 import Input from '../common/Input';
 import { v4 as uuidv4 } from 'uuid';
 import RenderMessage from '../common/Message';
 import ArrowBack from '@/assets/icons/ArrowBack';
+
 const Chat = () => {
-    const [message, setMessage] = React.useState("What skills do you have?")
-    const [optimisticMessages, addOptimisticMessage] = useOptimistic<Message[]>([])
+    const [message, setMessage] = React.useState<Message>({
+        from: MessageAuthor.USER,
+        message: "",
+        id: uuidv4()
+    })
+
     const [disabled, setDisabled] = React.useState(false)
     const [isLoading, setIsLoading] = React.useState(false)
+
+    const [messages, setMessages] = React.useState<Message[]>([{
+        from: MessageAuthor.AI,
+        message: "Welcome Daniel to Chat-pt. Ask me a question.",
+        id: uuidv4()
+    }])
 
     const handleSubmit = async (formData: FormData) => {
         const inputData = formData.get('message')
@@ -21,24 +34,17 @@ const Chat = () => {
         setDisabled(true)
         setIsLoading(true)
 
-        const message: Message = {
-            from: MessageAuthor.USER,
-            id: uuidv4(),
-            message: inputData as string,
-        }
-
         try {
             const response = await getUserInfoFromQuestion(message.message)
 
-            if (response.ok) {
+            if (response) {
                 const responseToMessage: Message = {
                     from: MessageAuthor.AI,
                     id: uuidv4(),
-                    message: response.answer
+                    message: response.message,
                 }
 
-                addOptimisticMessage((messages) => [responseToMessage, ...messages])
-                setMessage("")
+                setMessages((messages) => [responseToMessage, ...messages])
             }
 
         } catch (error) {
@@ -55,7 +61,7 @@ const Chat = () => {
             </div>
             <div className='container space-y-4 md:space-y-0  md:col-start-3 col-span-full gap-4'>
                 <div className='py-4 min-h-[10rem] '>
-                    {optimisticMessages.map((message) => (
+                    {messages.map((message) => (
                         <RenderMessage
                             messageDisplayFinished={() => setIsLoading(false)}
                             key={message.id}
@@ -70,8 +76,14 @@ const Chat = () => {
                             type="text"
                             name="message"
                             required
-                            value={message}
-                            onChange={(e) => setMessage(e.currentTarget.value)}
+                            value={message.message}
+                            onChange={(e) => setMessage(
+                                {
+                                    from: MessageAuthor.USER,
+                                    message: e.target.value,
+                                    id: uuidv4()
+                                }
+                            )}
                             className='"hover:outline-none focus:outline-none border-b-2 border-b-skin-base bg-transparent text-skin-base w-full'
                             placeholder='Type a message...'
                         />

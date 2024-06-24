@@ -1,4 +1,5 @@
-import { experimental_useFormStatus as useFormStatus } from 'react-dom'
+"use client";
+
 
 import React from 'react';
 import { cn } from '@/utils';
@@ -11,11 +12,11 @@ type Props = {
 };
 
 const SubmitButton = ({ className, text, icon, disabled }: Props) => {
-    const { pending } = useFormStatus()
+    // const { pending } = experimental_useFormStatus()
     return (
         <button
             disabled={disabled}
-            className={cn(className)} type="submit" aria-disabled={pending}>
+            className={cn(className)} type="submit" >
             {!text && text}
             {icon && icon}
         </button>

@@ -29,6 +29,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+/cache
+# Snext Python
+/venv
+/tutorial-env
+**__pycache**
 
 # typescript
 *.tsbuildinfo

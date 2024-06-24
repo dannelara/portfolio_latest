@@ -43,5 +43,10 @@ export type Message = {
 export enum MessageAuthor {
     USER="USER",
     AI="AI"
+}
 
+export type MessageT = {
+    from: "USER" | "SYSTEM",
+    message: string,
+    id?: string
 }
