@@ -17,7 +17,7 @@ const Projects = () => {
                 </div>
                 <div className='space-y-4'>
                     <span className='text-base md:text-xl text-skin-base'>Professional work:</span>
-                    {projects.map((p) => (<ProjectCard project={p} key={p.name} />))}
+                    {(projects.sort((a, b) => a.name.localeCompare(b.name))).map((p) => (<ProjectCard project={p} key={p.name} />))}
                 </div>
             </div>
         </Grid>
